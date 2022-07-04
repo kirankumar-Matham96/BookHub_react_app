@@ -1,5 +1,6 @@
 import {Route, Switch} from 'react-router-dom'
 import Login from './components/Login'
+import Home from './components/Home'
 import './App.css'
 
 // use the below bookshelvesList for rendering read status of book items in Bookshelves Route
@@ -30,8 +31,8 @@ import './App.css'
 const App = () => (
   <>
     <Switch>
+      <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
-      <Route component={<h1>Not found!</h1>} />
     </Switch>
   </>
 )
