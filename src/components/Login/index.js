@@ -11,18 +11,6 @@ class Login extends Component {
     showError: false,
   }
 
-  componentDidMount = () => {
-    this.authenticateUser()
-  }
-
-  authenticateUser = () => {
-    const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken !== undefined) {
-      return <Redirect to="/" />
-    }
-    return null
-  }
-
   onChangeUserName = event => {
     this.setState({username: event.target.value})
   }
@@ -53,6 +41,10 @@ class Login extends Component {
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     const {username, password, errorMessage, showError} = this.state
 
     return (
